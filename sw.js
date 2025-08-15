@@ -62,15 +62,15 @@ if (workbox) {
     },
     {
         "url": "index.html",
-        "revision": "d1b31f913dc44795a468a32a4674d90f"
+        "revision": "b910e5e11f8bb796be2f84acfdf3d2a2"
     },
     {
         "url": "manifest.json",
-        "revision": "13c88c9a47b4da9acfc58502f79f1a0e"
+        "revision": "08499ada2484b62e678efdbb5eb03091"
     },
     {
         "url": "offline.html",
-        "revision": "93dd8135f88165fc1bbc0acf525cd1d3"
+        "revision": "8987c4b748db7cbdf5e4c6165507121b"
     },
     {
         "url": "qrcode.min.js",
@@ -102,7 +102,7 @@ if (workbox) {
     },
     {
         "url": "sw.js",
-        "revision": "83e6a2b8fffc407226c40f862265b780"
+        "revision": "f3d6aaaf96a5f207a07949a8843bb5b8"
     }
 ]);
 
