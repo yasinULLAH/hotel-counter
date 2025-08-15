@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ur">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Yasin Ullah, Pakistan" name="author"/>
+<meta content="مکمل آف لائن ریستوران POS سسٹم - تھرمل پرنٹنگ اور QR کوڈ ویریفیکیشن کے ساتھ" name="description"/>
+<meta content="ریستوران، POS، پوائنٹ آف سیل، تھرمل پرنٹر، رسید، QR کوڈ، آف لائن، پاکستان" name="keywords"/>
+<title>ریستوران POS سسٹم - پاکستان</title>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            font-size: 14px;
+            direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .nav-tab {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            min-width: 80px;
+        }
+
+        .nav-tab.active,
+        .nav-tab:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            flex-grow: 1;
+            padding-bottom: 10px;
+        }
+
+        .tab-content.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+            flex-grow: 1;
+            height: 1px;
+        }
+
+        .grid>div {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 66rem;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            margin: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            min-width: 70px;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .btn-large {
+            padding: 15px 25px;
+            font-size: 16px;
+            min-width: 130px;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid #ecf0f1;
+            border-radius: 10px;
+            margin: 6px 0;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            border-color: #3498db;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .menu-item-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .menu-item-shortcut {
+            font-size: 0.8em;
+            color: #777;
+            margin-right: 5px;
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f0f0f0;
+        }
+
+        .cart {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #3498db;
+            flex-shrink: 0;
+        }
+
+        #currentCart {
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            font-size: 18px;
+        }
+
+        .cart-total {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .total-amount {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+            overflow-y: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            left: 10px;
+            top: 8px;
+            font-size: 25px;
+        }
+
+        .receipt {
+            width: 78mm;
+            background: white;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            line-height: 1.1;
+            margin: 10px auto;
+            border: 1px solid #333;
+            border-radius: 5px;
+            height: 112mm;
+            padding-top: 53px;
+        }
+
+        .receipt-header h3 {
+            font-size: 14px;
+        }
+
+        .receipt-item {
+            font-size: 9px;
+        }
+
+        .receipt-total {
+            font-size: 12px;
+        }
+
+        .qr-code-container {
+            margin: 8px auto;
+            text-align: center;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .stat-card {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+        }
+
+        .order-item {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .scanner-container {
+            max-width: 450px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #reader {
+            border: 1px solid #3498db;
+            border-radius: 10px;
+        }
+
+        .scan-result {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .report-section {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .report-controls {
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 8px;
+            }
+
+            .header {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .nav-tab {
+                padding: 8px 15px;
+                font-size: 13px;
+                min-width: 70px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 10px 0;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 8px;
+            }
+
+            .card {
+                padding: 12px;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 12px;
+                min-width: 60px;
+            }
+
+            .btn-large {
+                padding: 12px 20px;
+                font-size: 14px;
+                min-width: 100px;
+            }
+
+            .form-control {
+                padding: 8px;
+                font-size: 13px;
+            }
+
+            .menu-item {
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .menu-item-name {
+                font-size: 15px;
+            }
+
+            .menu-item-price {
+                font-size: 17px;
+            }
+
+            .cart {
+                padding: 12px;
+                top: 8px;
+            }
+
+            .cart-header {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            #currentCart {
+                margin-bottom: 8px;
+            }
+
+            .cart-item {
+                padding: 6px 0;
+            }
+
+            .quantity-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+            }
+
+            .total-amount {
+                font-size: 18px;
+            }
+
+            .search-box {
+                padding: 10px;
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .modal-content {
+                margin: 15px auto;
+                padding: 15px;
+                max-width: 350px;
+            }
+
+            .close {
+                font-size: 22px;
+            }
+
+            .receipt {
+                width: 55mm !important;
+                padding: 6px;
+                font-size: 9px;
+            }
+
+            .receipt-header h3 {
+                font-size: 12px;
+            }
+
+            .receipt-item {
+                font-size: 8px;
+            }
+
+            .receipt-total {
+                font-size: 10px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .stat-label {
+                font-size: 13px;
+            }
+
+            .order-item {
+                padding: 12px;
+            }
+
+            .scanner-container {
+                max-width: 380px;
+                padding: 15px;
+            }
+
+            .scan-result {
+                padding: 10px;
+            }
+
+            .report-section {
+                padding: 15px;
+            }
+
+            .report-controls {
+                gap: 8px;
+            }
+
+            .notification {
+                top: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+        }
+
+        .card.newd {
+            width: 100%;
+            height: 90px;
+        }
+
+        #adminPanel {
+            background: rgba(245, 247, 250, 0.6);
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .stat-card {
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 9px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card:nth-child(1) {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #2af598, #009efd);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #f83600, #f9d423);
+        }
+
+        .stat-card:nth-child(4) {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .stat-number {
+            font-weight: 700;
+        }
+
+        .stat-label {
+            opacity: 0.9;
+        }
+
+        .report-section {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+        }
+
+        .report-controls {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #reportResults h4 {
+            color: #34495e;
+            margin: 25px 0 10px 0;
+            font-size: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .report-list-container {
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            background: #f8f9fa;
+            padding: 0 15px;
+        }
+
+        .report-list-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 5px;
+            font-size: 14px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .report-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .report-list-item span:first-child {
+            color: #495057;
+        }
+
+        .report-value {
+            font-weight: bold;
+        }
+
+        .report-value.success {
+            color: #27ae60;
+        }
+
+        .report-value.info {
+            color: #3498db;
+        }
+    </style>
+<link href="manifest.json" rel="manifest"/><link href="favicon.ico" rel="icon" type="image/x-icon"/></head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🍽️ ریستوران POS سسٹم</h1>
+<p>مکمل پوائنٹ آف سیل حل - پاکستان</p>
+</div>
+<div class="nav-tabs">
+<button class="nav-tab active" onclick="showTab('pos')">🛒 POS</button>
+<button class="nav-tab" onclick="showTab('menu')">📋 مینو منیجمنٹ</button>
+<button class="nav-tab" onclick="showTab('orders')">📜 آرڈرز</button>
+<button class="nav-tab" onclick="showTab('scanner')">📱 QR اسکینر</button>
+<button class="nav-tab" onclick="showTab('admin')">👤 ایڈمن</button>
+<button class="nav-tab" onclick="showTab('settings')">⚙️ سیٹنگز</button>
+</div>
+<div class="tab-content active" id="pos">
+<div class="card newd" style="flex-shrink: 0;">
+<input autocomplete="new-password" class="search-box" id="menuSearch" onfocus="this.removeAttribute('readonly');" placeholder="مینو آئٹم تلاش کریں..." readonly="" type="text"/>
+</div>
+<div class="grid">
+<div>
+<div class="card">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50; flex-shrink: 0;">
+                            🍽️ مینو
+                            آئٹمز</h3>
+<div class="menu-grid" id="menuGrid"></div>
+</div>
+</div>
+<div>
+<div class="cart">
+<div class="cart-header">🛒 موجودہ آرڈر</div>
+<div id="currentCart"></div>
+<div class="cart-total">
+<div style="font-size: 16px; margin-bottom: 6px;">کل رقم:</div>
+<div class="total-amount" id="cartTotal">Rs. 0</div>
+</div>
+<div style="margin-top: 15px; flex-shrink: 0;">
+<select class="form-control" id="paymentMethod" style="margin-bottom: 10px;">
+<option value="نقد">💵 نقد</option>
+<option value="کارڈ">💳 کارڈ</option>
+<option value="موبائل بینکنگ">📱 موبائل بینکنگ</option>
+</select>
+<button class="btn btn-success btn-large" onclick="checkout()" style="width: 100%;">✅ چیک
+                                آؤٹ اور پرنٹ</button>
+<button class="btn btn-warning btn-large" onclick="clearCart()" style="width: 100%; margin-top: 8px;">🗑️ کارٹ صاف کریں</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="menu">
+<div class="card">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 8px; flex-shrink: 0;">
+<h3 style="font-size: 18px; color: #2c3e50;">📋 مینو منیجمنٹ</h3>
+<button class="btn btn-success" onclick="openModal('addItemModal')">➕ نیا آئٹم شامل کریں</button>
+</div>
+<div id="menuList" style="flex-grow: 1; overflow-y: auto;"></div>
+</div>
+</div>
+<div class="tab-content" id="orders">
+<div class="card">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50; flex-shrink: 0;">📜
+                    آرڈر تاریخ</h3>
+<div id="ordersList" style="flex-grow: 1; overflow-y: auto;"></div>
+</div>
+</div>
+<div class="tab-content" id="scanner">
+<div class="scanner-container">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📱 رسید ویریفیکیشن
+                    اسکینر</h3>
+<div id="reader"></div>
+<div id="scanResult"></div>
+</div>
+</div>
+<div class="tab-content" id="admin">
+<div class="card" id="adminLogin">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">👤 ایڈمن لاگ ان
+                </h3>
+<div class="form-group">
+<input class="form-control" id="adminPassword" placeholder="ایڈمن پاس ورڈ داخل کریں" type="password"/>
+</div>
+<button class="btn btn-large" onclick="adminLogin()" style="width: 100%;">🔐 لاگ ان</button>
+</div>
+<div id="adminPanel" style="display: none; flex-direction: column; flex-grow: 1;">
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number" id="todaySales">0</div>
+<div class="stat-label">آج کی فروخت</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" id="todayOrders">0</div>
+<div class="stat-label">آج کے آرڈرز</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" id="totalRevenue">0</div>
+<div class="stat-label">کل آمدنی</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" id="totalItems">0</div>
+<div class="stat-label">مینو آئٹمز</div>
+</div>
+</div>
+<div class="report-section" style="flex-grow: 1; overflow-y: auto;">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📊 رپورٹس</h3>
+<div class="report-controls">
+<button class="btn" onclick="generateReport('daily')">📅 روزانہ رپورٹ</button>
+<button class="btn" onclick="generateReport('weekly')">📈 ہفتہ وار رپورٹ</button>
+<button class="btn" onclick="generateReport('monthly')">📆 ماہانہ رپورٹ</button>
+<button class="btn btn-success" onclick="exportData()">💾 ڈیٹا ایکسپورٹ</button>
+<button class="btn btn-warning" onclick="openModal('importModal')">📁 ڈیٹا امپورٹ</button>
+</div>
+<div id="reportResults"></div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="settings">
+<div class="card">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">⚙️ ریستوران سیٹنگز
+                </h3>
+<div class="form-group">
+<label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">ریستوران کا
+                        نام:</label>
+<input class="form-control" id="restaurantName" type="text" value="بسم اللہ ریستوران"/>
+</div>
+<div class="form-group">
+<label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">پتہ:</label>
+<textarea class="form-control" id="restaurantAddress" rows="3">123 مین سٹریٹ، لاہور، پاکستان</textarea>
+</div>
+<div class="form-group">
+<label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">فون
+                        نمبر:</label>
+<input class="form-control" id="restaurantPhone" type="text" value="+92-300-1234567"/>
+</div>
+<button class="btn btn-success btn-large" onclick="saveSettings()" style="width: 100%;">💾 سیٹنگز محفوظ
+                    کریں</button>
+</div>
+</div>
+</div>
+<div class="modal" id="addItemModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('addItemModal')">×</span>
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">➕ نیا مینو آئٹم</h3>
+<div class="form-group">
+<input class="form-control" id="itemName" placeholder="آئٹم کا نام" type="text"/>
+</div>
+<div class="form-group">
+<input class="form-control" id="itemPrice" placeholder="قیمت (Rs.)" type="number"/>
+</div>
+<div class="form-group">
+<select class="form-control" id="itemCategory">
+<option value="مین کورس">مین کورس</option>
+<option value="اپیٹائزر">اپیٹائزر</option>
+<option value="ڈیزرٹ">ڈیزرٹ</option>
+<option value="مشروبات">مشروبات</option>
+<option value="چاول">چاول</option>
+<option value="روٹی">روٹی</option>
+</select>
+</div>
+<button class="btn btn-success btn-large" onclick="addMenuItem()" style="width: 100%;">✅ آئٹم شامل
+                کریں</button>
+</div>
+</div>
+<div class="modal" id="editItemModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('editItemModal')">×</span>
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">✏️ آئٹم ایڈٹ کریں</h3>
+<input id="editItemId" type="hidden"/>
+<div class="form-group">
+<input class="form-control" id="editItemName" placeholder="آئٹم کا نام" type="text"/>
+</div>
+<div class="form-group">
+<input class="form-control" id="editItemPrice" placeholder="قیمت (Rs.)" type="number"/>
+</div>
+<div class="form-group">
+<select class="form-control" id="editItemCategory">
+<option value="مین کورس">مین کورس</option>
+<option value="اپیٹائزر">اپیٹائزر</option>
+<option value="ڈیزرٹ">ڈیزرٹ</option>
+<option value="مشروبات">مشروبات</option>
+<option value="چاول">چاول</option>
+<option value="روٹی">روٹی</option>
+</select>
+</div>
+<button class="btn btn-success btn-large" onclick="updateMenuItem()" style="width: 100%;">✅ اپڈیٹ
+                کریں</button>
+</div>
+</div>
+<div class="modal" id="importModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('importModal')">×</span>
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📁 ڈیٹا امپورٹ</h3>
+<div class="form-group">
+<input accept=".json" class="form-control" id="importFile" type="file"/>
+</div>
+<button class="btn btn-success btn-large" onclick="importData()" style="width: 100%;">📥 امپورٹ
+                کریں</button>
+</div>
+</div>
+<div class="modal" id="receiptModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('receiptModal')">×</span>
+<div id="receiptContent"></div>
+<div style="text-align: center; margin-top: 15px;">
+<button class="btn btn-success btn-large" onclick="downloadReceipt()">📥 بطور تصویر ڈاؤن لوڈ
+                    کریں</button>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/qrious@4.0.2/dist/qrious.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+        class RestaurantPOS {
+            constructor() {
+                this.currentCart = [];
+                this.currentOrderId = null;
+                this.scanner = null;
+                this.db = null;
+                this.shortcuts = {};
+                this.initDB();
+                this.loadInitialData();
+            }
+            async initDB() {
+                return new Promise((resolve, reject) => {
+                    const request = indexedDB.open('RestaurantPOS', 1);
+                    request.onerror = () => reject(request.error);
+                    request.onsuccess = () => {
+                        this.db = request.result;
+                        resolve();
+                    };
+                    request.onupgradeneeded = (event) => {
+                        const db = event.target.result;
+                        if (!db.objectStoreNames.contains('menu')) {
+                            const menuStore = db.createObjectStore('menu', { keyPath: 'id', autoIncrement: true });
+                            menuStore.createIndex('name', 'name', { unique: false });
+                            menuStore.createIndex('category', 'category', { unique: false });
+                            menuStore.createIndex('shortcut', 'shortcut', { unique: true });
+                        }
+                        if (!db.objectStoreNames.contains('orders')) {
+                            const orderStore = db.createObjectStore('orders', { keyPath: 'id', autoIncrement: true });
+                            orderStore.createIndex('date', 'date', { unique: false });
+                            orderStore.createIndex('orderNumber', 'orderNumber', { unique: true });
+                        }
+                        if (!db.objectStoreNames.contains('settings')) {
+                            db.createObjectStore('settings', { keyPath: 'key' });
+                        }
+                    };
+                });
+            }
+            async loadInitialData() {
+                await this.initDB();
+                const menuItems = await this.getAllMenuItems();
+                if (menuItems.length === 0) {
+                    await this.loadDefaultMenu();
+                }
+                this.assignShortcuts(menuItems);
+                this.renderMenu();
+                this.renderMenuManagement();
+                this.renderOrders();
+                this.loadSettings();
+                this.setupSearchListener();
+                this.updateCartDisplay();
+            }
+            async loadDefaultMenu() {
+                const defaultItems = [
+                    { name: "چکن پلاو سنگل (1 پیس 2 کباب)", price: 510, category: "چاول" },
+                    { name: "چکن پلاو سنگل چائنیز (1 پیس 2 کباب)", price: 520, category: "چاول" },
+                    { name: "چکن پلاو سنگل بغیر کباب (1 پیس)", price: 430, category: "چاول" },
+                    { name: "چکن پلاو اسپیشل (2 پیس 2 کباب)", price: 660, category: "چاول" },
+                    { name: "چکن پلاو اسپیشل چائنیز (2 پیس 2 کباب)", price: 670, category: "چاول" },
+                    { name: "چکن پلاو اسپیشل بغیر کباب (2 پیس)", price: 570, category: "چاول" },
+                    { name: "سادہ پلاو (2 کباب)", price: 360, category: "چاول" },
+                    { name: "سادہ پلاو (بغیر کباب)", price: 270, category: "چاول" },
+                    { name: "سنگل لچ کس (1 چکن پیس 2 کباب)", price: 540, category: "مین کورس" },
+                    { name: "اسپیشل لچ کس (2 چکن پیس 2 کباب)", price: 680, category: "مین کورس" },
+                    { name: "سادہ پلاو لچ کس (2 کباب)", price: 390, category: "چاول" },
+                    { name: "چکن سٹیم روسٹ (فل)", price: 1400, category: "مین کورس" },
+                    { name: "چکن سٹیم روسٹ (ہاف)", price: 750, category: "مین کورس" },
+                    { name: "چکن سٹیم 1/4 پیس", price: 370, category: "مین کورس" },
+                    { name: "چکن سٹیم 1/8 پیس", price: 180, category: "مین کورس" },
+                    { name: "شاہی کباب فی درجن", price: 600, category: "مین کورس" },
+                    { name: "زردہ", price: 180, category: "ڈیزرٹ" },
+                    { name: "کھیر فی کلو", price: 660, category: "ڈیزرٹ" },
+                    { name: "رائتہ/سلاد", price: 60, category: "اپیٹائزر" },
+                    { name: "کولڈ ڈرنک", price: 80, category: "مشروبات" }
+                ];
+                for (const item of defaultItems) {
+                    await this.addMenuItemToDB(item);
+                }
+            }
+            assignShortcuts(menuItems) {
+                this.shortcuts = {};
+                const availableKeys = '1234567890abcdefghijklmnopqrstuvwxyz'.split('');
+                let keyIndex = 0;
+                for (const item of menuItems) {
+                    if (!item.shortcut) {
+                        while (keyIndex < availableKeys.length && Object.values(this.shortcuts).includes(availableKeys[keyIndex])) {
+                            keyIndex++;
+                        }
+                        if (keyIndex < availableKeys.length) {
+                            item.shortcut = availableKeys[keyIndex];
+                            this.shortcuts[item.shortcut] = item.id;
+                            this.updateMenuItemInDB(item.id, item).catch(console.error);
+                            keyIndex++;
+                        }
+                    } else {
+                        this.shortcuts[item.shortcut] = item.id;
+                    }
+                }
+            }
+            setupSearchListener() {
+                const searchBox = document.getElementById('menuSearch');
+                if (searchBox) {
+                    searchBox.addEventListener('input', () => {
+                        this.renderMenu();
+                    });
+                }
+            }
+            async addMenuItemToDB(item) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['menu'], 'readwrite');
+                    const store = transaction.objectStore('menu');
+                    const request = store.add(item);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async getAllMenuItems() {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['menu'], 'readonly');
+                    const store = transaction.objectStore('menu');
+                    const request = store.getAll();
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async getAllOrders() {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['orders'], 'readonly');
+                    const store = transaction.objectStore('orders');
+                    const request = store.getAll();
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async renderMenu() {
+                const items = await this.getAllMenuItems();
+                const grid = document.getElementById('menuGrid');
+                if (!grid) return;
+                grid.innerHTML = '';
+                this.assignShortcuts(items);
+                const searchTerm = document.getElementById('menuSearch').value.toLowerCase();
+                const filteredItems = items.filter(item =>
+                    (item.name && item.name.toLowerCase().includes(searchTerm)) || (item.shortcut && item.shortcut.toLowerCase().includes(searchTerm))
+                );
+                filteredItems.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'menu-item';
+                    div.setAttribute('onclick', `pos.addToCart(${item.id}, '${item.name}', ${item.price})`);
+                    div.innerHTML = `
+        <div class="menu-item-info">
+            <div class="menu-item-name">${item.name}</div>
+            <div style="color: #666; font-size: 12px; margin: 3px 0;">قسم: ${item.category}</div>
+            <div class="menu-item-price">Rs. ${item.price}</div>
+        </div>
+        ${item.shortcut ? `<span class="menu-item-shortcut" style="align-self: center;">${item.shortcut.toUpperCase()}</span>` : ''}
+    `;
+                    grid.appendChild(div);
+                });
+                if (filteredItems.length === 0) {
+                    grid.innerHTML = '<div style="text-align: center; padding: 25px; color: #666; font-size: 14px;">کوئی آئٹم نہیں ملا</div>';
+                }
+            }
+            async renderMenuManagement() {
+                const items = await this.getAllMenuItems();
+                const list = document.getElementById('menuList');
+                if (!list) return;
+                list.innerHTML = '';
+                this.assignShortcuts(items);
+                items.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'menu-item';
+                    div.innerHTML = `
+                        <div class="menu-item-info">
+                            <div class="menu-item-name">${item.name}</div>
+                            <div style="color: #666; font-size: 12px; margin: 3px 0;">قسم: ${item.category} | قیمت: Rs. ${item.price}</div>
+                        </div>
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            ${item.shortcut ? `<span class="menu-item-shortcut">${item.shortcut.toUpperCase()}</span>` : ''}
+                            <button class="btn btn-warning" onclick="pos.editMenuItem(${item.id})">✏️ ایڈٹ</button>
+                            <button class="btn btn-danger" onclick="pos.deleteMenuItem(${item.id})">🗑️ ڈیلیٹ</button>
+                        </div>
+                    `;
+                    list.appendChild(div);
+                });
+                if (items.length === 0) {
+                    list.innerHTML = '<div style="text-align: center; padding: 25px; color: #666; font-size: 14px;">کوئی آئٹم موجود نہیں</div>';
+                }
+            }
+            async renderOrders() {
+                const orders = await this.getAllOrders();
+                const list = document.getElementById('ordersList');
+                if (!list) return;
+                list.innerHTML = '';
+                orders.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(order => {
+                    const div = document.createElement('div');
+                    div.className = 'order-item';
+                    div.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div>
+                                <div style="font-weight: bold; font-size: 16px; color: #2c3e50;">آرڈر #${order.orderNumber}</div>
+                                <div style="color: #666; font-size: 12px; margin: 3px 0;">${new Date(order.date).toLocaleString('ur-PK')}</div>
+                                <div style="color: #666; font-size: 12px;">ادائیگی: ${order.paymentMethod}</div>
+                            </div>
+                            <div style="text-align: left;">
+                                <div style="font-size: 20px; font-weight: bold; color: #27ae60; margin-bottom: 6px;">Rs. ${order.total}</div>
+                                <div style="display: flex; gap: 6px;">
+                                    <button class="btn" onclick="pos.viewOrder(${order.id})">👁️ دیکھیں</button>
+                                    <button class="btn btn-danger" onclick="pos.deleteOrder(${order.id})">🗑️ ڈیلیٹ</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 12px;">
+                            <strong>آئٹمز:</strong> ${order.items.map(item => `${item.name} x${item.quantity}`).join(', ')}
+                        </div>
+                    `;
+                    list.appendChild(div);
+                });
+                if (orders.length === 0) {
+                    list.innerHTML = '<div style="text-align: center; padding: 25px; color: #666; font-size: 14px;">کوئی آرڈر موجود نہیں</div>';
+                }
+            }
+            addToCart(id, name, price) {
+                const existingItem = this.currentCart.find(item => item.id === id);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    this.currentCart.push({ id, name, price, quantity: 1 });
+                }
+                this.updateCartDisplay();
+                this.showNotification('آئٹم کارٹ میں شامل کر دیا گیا', 'success');
+            }
+            removeFromCart(id) {
+                this.currentCart = this.currentCart.filter(item => item.id !== id);
+                this.updateCartDisplay();
+                this.showNotification('آئٹم کارٹ سے ہٹا دیا گیا', 'warning');
+            }
+            updateQuantity(id, quantity) {
+                const item = this.currentCart.find(item => item.id === id);
+                if (item) {
+                    item.quantity = Math.max(0, quantity);
+                    if (item.quantity === 0) {
+                        this.removeFromCart(id);
+                        return;
+                    }
+                }
+                this.updateCartDisplay();
+            }
+            updateCartDisplay() {
+                const cart = document.getElementById('currentCart');
+                const total = document.getElementById('cartTotal');
+                if (!cart || !total) return;
+                cart.innerHTML = '';
+                let totalAmount = 0;
+                this.currentCart.forEach(item => {
+                    totalAmount += item.price * item.quantity;
+                    const div = document.createElement('div');
+                    div.className = 'cart-item';
+                    div.innerHTML = `
+                        <div style="flex: 1;">
+                            <div style="font-weight: bold; font-size: 14px; margin-bottom: 3px;">${item.name}</div>
+                            <div style="color: #666; font-size: 12px;">Rs. ${item.price} فی یونٹ</div>
+                        </div>
+                        <div class="quantity-controls">
+                            <button class="btn quantity-btn btn-danger" onclick="pos.updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                            <span style="font-weight: bold; min-width: 25px; text-align: center; font-size: 14px;">${item.quantity}</span>
+                            <button class="btn quantity-btn btn-success" onclick="pos.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                            <button class="btn btn-danger" onclick="pos.removeFromCart(${item.id})" style="padding: 6px 10px; font-size: 12px;">❌</button>
+                        </div>
+                    `;
+                    cart.appendChild(div);
+                });
+                if (this.currentCart.length === 0) {
+                    cart.innerHTML = '<div style="text-align: center; padding: 15px; color: #666; font-size: 13px;">کارٹ خالی ہے</div>';
+                }
+                total.textContent = `Rs. ${totalAmount}`;
+            }
+            clearCart() {
+                this.currentCart = [];
+                this.updateCartDisplay();
+                localStorage.removeItem('restaurant-pos-cart');
+                this.showNotification('کارٹ صاف کر دیا گیا', 'success');
+            }
+            async checkout() {
+                if (this.currentCart.length === 0) {
+                    this.showNotification('کارٹ خالی ہے!', 'error');
+                    return;
+                }
+                const orderNumber = Date.now().toString().slice(-8);
+                const total = this.currentCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const paymentMethod = document.getElementById('paymentMethod').value;
+                const order = {
+                    orderNumber,
+                    date: new Date().toISOString(),
+                    items: [...this.currentCart],
+                    total,
+                    paymentMethod
+                };
+                try {
+                    await this.saveOrder(order);
+                    await this.generateReceipt(order);
+                    this.clearCart();
+                    this.renderOrders();
+                    this.showNotification('آرڈر مکمل ہو گیا!', 'success');
+                } catch (error) {
+                    console.error('Checkout error:', error);
+                    this.showNotification('آرڈر میں خرابی ہوئی', 'error');
+                }
+            }
+            async saveOrder(order) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['orders'], 'readwrite');
+                    const store = transaction.objectStore('orders');
+                    const request = store.add(order);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async generateReceipt(order) {
+                const settings = await this.getSettings();
+                const receiptHtml = `
+                    <div class="receipt">
+                        <div class="receipt-header">
+                            <h3>${settings.restaurantName || 'بسم اللہ ریستوران'}</h3>
+                            <div style='margin: 6px 0;font-size: 9px;text-align: center;' dir='ltr'>
+                                ${settings.restaurantAddress || '123 مین سٹریٹ، لاہور، پاکستان'}<br>
+                                ${settings.restaurantPhone || '+92-300-1234567'}
+                            </div>
+                        </div>
+                        <div style="border-bottom: 1px dashed #000; margin: 6px 0;"></div>
+                        <div style="margin: 4px 0; font-size: 9px;"><strong>آرڈر نمبر:</strong> ${order.orderNumber}</div>
+                        <div style="margin: 4px 0; font-size: 9px;"><strong>تاریخ:</strong> ${new Date(order.date).toLocaleString('ur-PK')}</div>
+                        <div style="margin: 4px 0; font-size: 9px;"><strong>ادائیگی:</strong> ${order.paymentMethod}</div>
+                        <div style="border-bottom: 1px dashed #000; margin: 6px 0;"></div>
+                        ${order.items.map(item => `
+                            <div class="receipt-item">
+                                <div style="font-weight: bold;">${item.name}</div>
+                            </div>
+                            <div class="receipt-item">
+                                <span>${item.quantity} x Rs.${item.price}</span>
+                                <span>Rs.${item.quantity * item.price}</span>
+                            </div>
+                        `).join('')}
+                        <div style="border-bottom: 1px dashed #000; margin: 6px 0;"></div>
+                        <div class="receipt-total">
+                            <div class="receipt-item">
+                                <span>کل رقم:</span>
+                                <span>Rs. ${order.total}</span>
+                            </div>
+                        </div>
+                        <div class="qr-code-container" id="qrCode${order.orderNumber}"></div>
+                        <div style="text-align: center; font-size: 8px; margin-top: 10px;">
+                            آپ کی آمد کا شکریہ!<br>
+                            رسید کی تصدیق کے لیے QR کوڈ اسکین کریں
+                        </div>
+                    </div>
+                `;
+                document.getElementById('receiptContent').innerHTML = receiptHtml;
+                const qrData = JSON.stringify({
+                    orderNumber: order.orderNumber,
+                    total: order.total,
+                    date: order.date,
+                    hash: this.generateHash(order.orderNumber + order.total + order.date)
+                });
+                try {
+                    const canvas = document.createElement('canvas');
+                    new QRious({
+                        element: canvas,
+                        value: qrData,
+                        size: 160,
+                        padding: 1
+                    });
+                    document.getElementById(`qrCode${order.orderNumber}`).appendChild(canvas);
+                } catch (error) {
+                    console.error('QR Code generation failed:', error);
+                    document.getElementById(`qrCode${order.orderNumber}`).innerHTML = '<div style="font-size: 8px;">QR کوڈ بن نہیں سکا</div>';
+                }
+                this.openModal('receiptModal');
+            }
+            generateHash(data) {
+                let hash = 0;
+                for (let i = 0; i < data.length; i++) {
+                    const char = data.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash;
+                }
+                return Math.abs(hash).toString(16);
+            }
+            async downloadReceipt() {
+                const receiptElement = document.querySelector('#receiptContent .receipt');
+                if (!receiptElement) {
+                    this.showNotification('Receipt element not found!', 'error');
+                    return;
+                }
+                try {
+                    const canvas = await html2canvas(receiptElement, {
+                        scale: 5,
+                        useCORS: true,
+                        backgroundColor: '#ffffff'
+                    });
+                    const link = document.createElement('a');
+                    const orderNumber = receiptElement.querySelector('strong').nextSibling.textContent.trim();
+                    link.download = `receipt-${orderNumber || Date.now()}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    this.closeModal('receiptModal');
+                    this.showNotification('Receipt downloaded as image!', 'success');
+                } catch (error) {
+                    console.error('Failed to download receipt:', error);
+                    this.showNotification('Error downloading receipt', 'error');
+                }
+            }
+            async addMenuItem() {
+                const name = document.getElementById('itemName').value.trim();
+                const price = parseFloat(document.getElementById('itemPrice').value);
+                const category = document.getElementById('itemCategory').value;
+                if (!name || !price || price <= 0) {
+                    this.showNotification('براہ کرم تمام فیلڈز صحیح طریقے سے بھریں!', 'error');
+                    return;
+                }
+                try {
+                    const newItem = { name, price, category };
+                    await this.addMenuItemToDB(newItem);
+                    const updatedMenuItems = await this.getAllMenuItems();
+                    this.assignShortcuts(updatedMenuItems);
+                    this.renderMenu();
+                    this.renderMenuManagement();
+                    this.closeModal('addItemModal');
+                    document.getElementById('itemName').value = '';
+                    document.getElementById('itemPrice').value = '';
+                    document.getElementById('itemCategory').value = 'مین کورس';
+                    this.showNotification('نیا آئٹم شامل کر دیا گیا', 'success');
+                } catch (error) {
+                    console.error('Add item error:', error);
+                    this.showNotification('آئٹم شامل کرنے میں خرابی', 'error');
+                }
+            }
+            async editMenuItem(id) {
+                try {
+                    const item = await this.getMenuItemById(id);
+                    document.getElementById('editItemId').value = id;
+                    document.getElementById('editItemName').value = item.name;
+                    document.getElementById('editItemPrice').value = item.price;
+                    document.getElementById('editItemCategory').value = item.category;
+                    this.openModal('editItemModal');
+                } catch (error) {
+                    console.error('Edit item error:', error);
+                    this.showNotification('آئٹم لوڈ کرنے میں خرابی', 'error');
+                }
+            }
+            async updateMenuItem() {
+                const id = parseInt(document.getElementById('editItemId').value);
+                const name = document.getElementById('editItemName').value.trim();
+                const price = parseFloat(document.getElementById('editItemPrice').value);
+                const category = document.getElementById('editItemCategory').value;
+                if (!name || !price || price <= 0) {
+                    this.showNotification('براہ کرم تمام فیلڈز صحیح طریقے سے بھریں!', 'error');
+                    return;
+                }
+                try {
+                    const existingItem = await this.getMenuItemById(id);
+                    const updatedItem = { name, price, category, shortcut: existingItem.shortcut };
+                    await this.updateMenuItemInDB(id, updatedItem);
+                    this.renderMenu();
+                    this.renderMenuManagement();
+                    this.closeModal('editItemModal');
+                    this.showNotification('آئٹم اپڈیٹ کر دیا گیا', 'success');
+                } catch (error) {
+                    console.error('Update item error:', error);
+                    this.showNotification('آئٹم اپڈیٹ کرنے میں خرابی', 'error');
+                }
+            }
+            async deleteMenuItem(id) {
+                if (confirm('کیا آپ واقعی اس آئٹم کو ڈیلیٹ کرنا چاہتے ہیں؟')) {
+                    try {
+                        await this.deleteMenuItemFromDB(id);
+                        const updatedMenuItems = await this.getAllMenuItems();
+                        this.assignShortcuts(updatedMenuItems);
+                        this.renderMenu();
+                        this.renderMenuManagement();
+                        this.showNotification('آئٹم ڈیلیٹ کر دیا گیا', 'success');
+                    } catch (error) {
+                        console.error('Delete item error:', error);
+                        this.showNotification('آئٹم ڈیلیٹ کرنے میں خرابی', 'error');
+                    }
+                }
+            }
+            async getMenuItemById(id) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['menu'], 'readonly');
+                    const store = transaction.objectStore('menu');
+                    const request = store.get(id);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async updateMenuItemInDB(id, item) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['menu'], 'readwrite');
+                    const store = transaction.objectStore('menu');
+                    item.id = id;
+                    const request = store.put(item);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async deleteMenuItemFromDB(id) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['menu'], 'readwrite');
+                    const store = transaction.objectStore('menu');
+                    const request = store.delete(id);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async deleteOrder(id) {
+                if (confirm('کیا آپ واقعی اس آرڈر کو ڈیلیٹ کرنا چاہتے ہیں؟')) {
+                    try {
+                        await this.deleteOrderFromDB(id);
+                        this.renderOrders();
+                        this.showNotification('آرڈر ڈیلیٹ کر دیا گیا', 'success');
+                    } catch (error) {
+                        console.error('Delete order error:', error);
+                        this.showNotification('آرڈر ڈیلیٹ کرنے میں خرابی', 'error');
+                    }
+                }
+            }
+            async deleteOrderFromDB(id) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['orders'], 'readwrite');
+                    const store = transaction.objectStore('orders');
+                    const request = store.delete(id);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async viewOrder(id) {
+                try {
+                    const order = await this.getOrderById(id);
+                    const itemsList = order.items.map(item =>
+                        `${item.name} x${item.quantity} = Rs.${item.price * item.quantity}`
+                    ).join('\n');
+                    alert(`آرڈر #${order.orderNumber}\n\nتاریخ: ${new Date(order.date).toLocaleString('ur-PK')}\nادائیگی: ${order.paymentMethod}\n\nآئٹمز:\n${itemsList}\n\nکل رقم: Rs.${order.total}`);
+                } catch (error) {
+                    console.error('View order error:', error);
+                    this.showNotification('آرڈر لوڈ کرنے میں خرابی', 'error');
+                }
+            }
+            async getOrderById(id) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['orders'], 'readonly');
+                    const store = transaction.objectStore('orders');
+                    const request = store.get(id);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            initScanner() {
+                const qrboxConfig = (viewfinderWidth, viewfinderHeight) => {
+                    let minEdgePercentage = 0.7;
+                    let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+                    let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+                    return { width: qrboxSize, height: qrboxSize };
+                }
+                if (this.scanner) {
+                    this.scanner.clear().catch(err => console.error("Error clearing scanner:", err));
+                    this.scanner = null;
+                }
+                this.scanner = new Html5QrcodeScanner(
+                    "reader",
+                    {
+                        fps: 10,
+                        qrbox: qrboxConfig,
+                        aspectRatio: 1.0,
+                        disableFlip: false
+                    },
+                    false
+                );
+                this.scanner.render((decodedText) => {
+                    this.verifyReceipt(decodedText);
+                    this.scanner.pause();
+                }, (error) => {
+                });
+            }
+            verifyReceipt(qrData) {
+                try {
+                    const data = JSON.parse(qrData);
+                    const expectedHash = this.generateHash(data.orderNumber + data.total + data.date);
+                    const resultDiv = document.getElementById('scanResult');
+                    if (data.hash === expectedHash) {
+                        resultDiv.innerHTML = `
+                            <div class="scan-result scan-success">
+                                <h4>✅ صحیح رسید</h4>
+                                <p><strong>آرڈر:</strong> #${data.orderNumber}</p>
+                                <p><strong>رقم:</strong> Rs. ${data.total}</p>
+                                <p><strong>تاریخ:</strong> ${new Date(data.date).toLocaleString('ur-PK')}</p>
+                            </div>
+                        `;
+                        this.showNotification('رسید کی تصدیق ہو گئی!', 'success');
+                    } else {
+                        resultDiv.innerHTML = `
+                            <div class="scan-result scan-error">
+                                <h4>❌ غلط رسید</h4>
+                                <p>اس رسید کی تصدیق نہیں ہو سکی</p>
+                            </div>
+                        `;
+                        this.showNotification('رسید کی تصدیق نہیں ہوئی', 'error');
+                    }
+                } catch (error) {
+                    document.getElementById('scanResult').innerHTML = `
+                        <div class="scan-result scan-error">
+                            <h4>❌ غلط QR کوڈ</h4>
+                            <p>یہ صحیح رسید کا QR کوڈ نہیں ہے</p>
+                        </div>
+                    `;
+                    this.showNotification('غلط QR کوڈ', 'error');
+                } finally {
+                    setTimeout(() => {
+                        document.getElementById('scanResult').innerHTML = '';
+                        if (this.scanner && Html5QrcodeScanner.getState() !== Html5QrcodeScanner.Html5QrcodeScannerState.SCANNING) {
+                            this.scanner.resume().catch(err => console.error("Error resuming scanner:", err));
+                        }
+                    }, 3000);
+                }
+            }
+            adminLogin() {
+                const password = document.getElementById('adminPassword').value;
+                if (password === 'admin123') {
+                    document.getElementById('adminLogin').style.display = 'none';
+                    document.getElementById('adminPanel').style.display = 'flex';
+                    this.loadAdminStats();
+                    this.showNotification('ایڈمن پینل میں خوش آمدید!', 'success');
+                } else {
+                    this.showNotification('غلط پاس ورڈ!', 'error');
+                    document.getElementById('adminPassword').value = '';
+                }
+            }
+            async loadAdminStats() {
+                try {
+                    const orders = await this.getAllOrders();
+                    const menuItems = await this.getAllMenuItems();
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+                    const todayOrders = orders.filter(order => new Date(order.date) >= today);
+                    const todaySales = todayOrders.reduce((sum, order) => sum + order.total, 0);
+                    const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
+                    document.getElementById('todaySales').textContent = `${todaySales}`;
+                    document.getElementById('todayOrders').textContent = todayOrders.length;
+                    document.getElementById('totalRevenue').textContent = `${totalRevenue}`;
+                    document.getElementById('totalItems').textContent = menuItems.length;
+                } catch (error) {
+                    console.error('Load stats error:', error);
+                    this.showNotification('اعداد و شمار لوڈ کرنے میں خرابی', 'error');
+                }
+            }
+            async generateReport(type) {
+                try {
+                    const orders = await this.getAllOrders();
+                    const now = new Date();
+                    let filteredOrders = [];
+                    let reportTitle = '';
+                    switch (type) {
+                        case 'daily':
+                            const today = new Date();
+                            today.setHours(0, 0, 0, 0);
+                            filteredOrders = orders.filter(order => new Date(order.date) >= today);
+                            reportTitle = 'روزانہ رپورٹ';
+                            break;
+                        case 'weekly':
+                            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                            filteredOrders = orders.filter(order => new Date(order.date) >= weekAgo);
+                            reportTitle = 'ہفتہ وار رپورٹ';
+                            break;
+                        case 'monthly':
+                            const monthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+                            filteredOrders = orders.filter(order => new Date(order.date) >= monthAgo);
+                            reportTitle = 'ماہانہ رپورٹ';
+                            break;
+                    }
+                    const totalSales = filteredOrders.reduce((sum, order) => sum + order.total, 0);
+                    const totalOrders = filteredOrders.length;
+                    const itemSales = {};
+                    filteredOrders.forEach(order => {
+                        order.items.forEach(item => {
+                            if (itemSales[item.name]) {
+                                itemSales[item.name] += item.quantity;
+                            } else {
+                                itemSales[item.name] = item.quantity;
+                            }
+                        });
+                    });
+                    const bestSelling = Object.entries(itemSales)
+                        .sort(([, a], [, b]) => b - a)
+                        .slice(0, 10);
+                    const paymentMethods = {};
+                    filteredOrders.forEach(order => {
+                        if (paymentMethods[order.paymentMethod]) {
+                            paymentMethods[order.paymentMethod]++;
+                        } else {
+                            paymentMethods[order.paymentMethod] = 1;
+                        }
+                    });
+                    const reportHtml = `
+                        <div class="report-section">
+                            <h3 style="text-align: center; margin-bottom: 15px; color: #2c3e50; font-size: 18px;">${reportTitle}</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number">${totalOrders}</div>
+                                    <div class="stat-label">کل آرڈرز</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">Rs. ${totalSales}</div>
+                                    <div class="stat-label">کل فروخت</div>
+                                </div>
+                            </div>
+                            <div style="margin: 20px 0;">
+                                <h4 style="color: #2c3e50; margin-bottom: 10px; font-size: 16px;">🏆 سب سے زیادہ فروخت ہونے والے آئٹمز:</h4>
+                                <div style="background: #f8f9fa; padding: 12px; border-radius: 6px;">
+                                    ${bestSelling.length > 0 ?
+                            bestSelling.map(([item, qty], index) => `
+    <div class="report-list-item">
+        <span>${index + 1}. ${item}</span>
+        <span class="report-value success">${qty} فروخت</span>
+    </div>
+`).join('') :
+                            '<div style="text-align: center; color: #666; font-size: 13px;">کوئی ڈیٹا دستیاب نہیں</div>'
+                        }
+                                </div>
+                            </div>
+                            <div style="margin: 20px 0;">
+                                <h4 style="color: #2c3e50; margin-bottom: 10px; font-size: 16px;">💳 ادائیگی کے طریقے:</h4>
+                                <div style="background: #f8f9fa; padding: 12px; border-radius: 6px;">
+                                    ${Object.entries(paymentMethods).length > 0 ?
+                            Object.entries(paymentMethods).map(([method, count]) => `
+    <div class="report-list-item">
+        <span>${method}</span>
+        <span class="report-value info">${count} آرڈرز</span>
+    </div>
+`).join('') :
+                            '<div style="text-align: center; color: #666; font-size: 13px;">کوئی ڈیٹا دستیاب نہیں</div>'
+                        }
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 15px;">
+                                <button class="btn btn-success" onclick="pos.exportReportCSV('${type}', ${JSON.stringify(filteredOrders).replace(/"/g, '&quot;')})">
+                                    📊 CSV میں ایکسپورٹ کریں
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('reportResults').innerHTML = reportHtml;
+                    this.showNotification(`${reportTitle} تیار ہو گئی`, 'success');
+                } catch (error) {
+                    console.error('Generate report error:', error);
+                    this.showNotification('رپورٹ بنانے میں خرابی', 'error');
+                }
+            }
+            exportReportCSV(type, orders) {
+                try {
+                    let csv = 'آرڈر نمبر,تاریخ,ادائیگی کا طریقہ,کل رقم,آئٹمز\n';
+                    orders.forEach(order => {
+                        const itemsText = order.items.map(item => `${item.name} x${item.quantity}`).join('; ');
+                        const date = new Date(order.date).toLocaleDateString('ur-PK');
+                        csv += `${order.orderNumber},"${date}","${order.paymentMethod}",${order.total},"${itemsText}"\n`;
+                    });
+                    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${type}-report-${new Date().toISOString().split('T')[0]}.csv`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    this.showNotification('رپورٹ ایکسپورٹ ہو گئی', 'success');
+                } catch (error) {
+                    console.error('Export CSV error:', error);
+                    this.showNotification('ایکسپورٹ کرنے میں خرابی', 'error');
+                }
+            }
+            async exportData() {
+                try {
+                    const menuItems = await this.getAllMenuItems();
+                    const orders = await this.getAllOrders();
+                    const settings = await this.getSettings();
+                    const exportData = {
+                        menuItems,
+                        orders,
+                        settings,
+                        exportDate: new Date().toISOString(),
+                        version: '1.0'
+                    };
+                    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `restaurant-pos-backup-${new Date().toISOString().split('T')[0]}.json`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    this.showNotification('ڈیٹا ایکسپورٹ ہو گیا', 'success');
+                } catch (error) {
+                    console.error('Export data error:', error);
+                    this.showNotification('ڈیٹا ایکسپورٹ کرنے میں خرابی', 'error');
+                }
+            }
+            async importData() {
+                const fileInput = document.getElementById('importFile');
+                const file = fileInput.files[0];
+                if (!file) {
+                    this.showNotification('براہ کرم فائل منتخب کریں!', 'error');
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        if (confirm('یہ تمام موجودہ ڈیٹا کو تبدیل کر دے گا۔ کیا آپ واقعی جاری رکھنا چاہتے ہیں؟')) {
+                            await this.clearAllData();
+                            if (data.menuItems && Array.isArray(data.menuItems)) {
+                                for (const item of data.menuItems) {
+                                    delete item.id;
+                                    await this.addMenuItemToDB(item);
+                                }
+                            }
+                            if (data.orders && Array.isArray(data.orders)) {
+                                for (const order of data.orders) {
+                                    delete order.id;
+                                    await this.saveOrder(order);
+                                }
+                            }
+                            if (data.settings) {
+                                await this.saveSettings(data.settings);
+                            }
+                            this.renderMenu();
+                            this.renderMenuManagement();
+                            this.renderOrders();
+                            this.loadSettings();
+                            this.showNotification('ڈیٹا کامیابی سے امپورٹ ہو گیا!', 'success');
+                            this.closeModal('importModal');
+                            fileInput.value = '';
+                        }
+                    } catch (error) {
+                        console.error('Import error:', error);
+                        this.showNotification('غلط فائل فارمیٹ!', 'error');
+                    }
+                };
+                reader.readAsText(file);
+            }
+            async clearAllData() {
+                const stores = ['menu', 'orders', 'settings'];
+                for (const storeName of stores) {
+                    const transaction = this.db.transaction([storeName], 'readwrite');
+                    const store = transaction.objectStore(storeName);
+                    await new Promise((resolve, reject) => {
+                        const request = store.clear();
+                        request.onsuccess = () => resolve();
+                        request.onerror = () => reject(request.error);
+                    });
+                }
+            }
+            async getSettings() {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['settings'], 'readonly');
+                    const store = transaction.objectStore('settings');
+                    const request = store.get('restaurant');
+                    request.onsuccess = () => resolve(request.result?.value || {});
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async saveSettings(settings) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction(['settings'], 'readwrite');
+                    const store = transaction.objectStore('settings');
+                    const request = store.put({ key: 'restaurant', value: settings });
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+            async loadSettings() {
+                try {
+                    const settings = await this.getSettings();
+                    document.getElementById('restaurantName').value = settings.restaurantName || 'بسم اللہ ریستوران';
+                    document.getElementById('restaurantAddress').value = settings.restaurantAddress || '123 مین سٹریٹ، لاہور، پاکستان';
+                    document.getElementById('restaurantPhone').value = settings.restaurantPhone || '+92-300-1234567';
+                } catch (error) {
+                    console.error('Load settings error:', error);
+                }
+            }
+            async saveCurrentSettings() {
+                try {
+                    const settings = {
+                        restaurantName: document.getElementById('restaurantName').value.trim(),
+                        restaurantAddress: document.getElementById('restaurantAddress').value.trim(),
+                        restaurantPhone: document.getElementById('restaurantPhone').value.trim()
+                    };
+                    if (!settings.restaurantName) {
+                        this.showNotification('ریستوران کا نام ضروری ہے!', 'error');
+                        return;
+                    }
+                    await this.saveSettings(settings);
+                    this.showNotification('سیٹنگز محفوظ ہو گئیں!', 'success');
+                } catch (error) {
+                    console.error('Save settings error:', error);
+                    this.showNotification('سیٹنگز محفوظ کرنے میں خرابی', 'error');
+                }
+            }
+            openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            closeModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+            showNotification(message, type = 'info') {
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    clearTimeout(existingNotification.hideTimeout);
+                    existingNotification.remove();
+                }
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.classList.add('show'), 100);
+                notification.hideTimeout = setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 400);
+                }, 3000);
+            }
+        }
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            const clickedButton = document.querySelector(`.nav-tab[onclick="showTab('${tabId}')"]`);
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+            if (tabId === 'scanner') {
+                setTimeout(() => pos.initScanner(), 500);
+            } else {
+                if (pos.scanner) {
+                    pos.scanner.clear().catch(err => console.error("Error clearing scanner on tab change:", err));
+                    pos.scanner = null;
+                }
+            }
+            if (tabId === 'admin') {
+                document.getElementById('adminLogin').style.display = 'block';
+                document.getElementById('adminPanel').style.display = 'none';
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+        function openModal(modalId) { pos.openModal(modalId); }
+        function closeModal(modalId) { pos.closeModal(modalId); }
+        function addMenuItem() { pos.addMenuItem(); }
+        function updateMenuItem() { pos.updateMenuItem(); }
+        function adminLogin() { pos.adminLogin(); }
+        function generateReport(type) { pos.generateReport(type); }
+        function exportData() { pos.exportData(); }
+        function importData() { pos.importData(); }
+        function saveSettings() { pos.saveCurrentSettings(); }
+        function checkout() { pos.checkout(); }
+        function clearCart() { pos.clearCart(); }
+        function downloadReceipt() { pos.downloadReceipt(); }
+        const pos = new RestaurantPOS();
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+        document.addEventListener('keydown', async function (e) {
+            if (e.altKey) {
+                switch (e.key) {
+                    case '1': showTab('pos'); break;
+                    case '2': showTab('menu'); break;
+                    case '3': showTab('orders'); break;
+                    case '4': showTab('scanner'); break;
+                    case '5': showTab('admin'); break;
+                    case '6': showTab('settings'); break;
+                }
+            }
+            if (e.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'flex') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+            if (e.ctrlKey && e.key === 'Enter') {
+                e.preventDefault();
+                checkout();
+            }
+            const posTab = document.getElementById('pos');
+            if (posTab && posTab.classList.contains('active') && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+                if (!e.key) return;
+                const key = e.key.toLowerCase();
+                if (pos.shortcuts[key]) {
+                    e.preventDefault();
+                    const itemId = pos.shortcuts[key];
+                    const item = await pos.getMenuItemById(itemId);
+                    if (item) {
+                        pos.addToCart(item.id, item.name, item.price);
+                    }
+                }
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            pos.showNotification('🎉 ریستوران POS سسٹم تیار ہے!', 'success');
+            const searchBox = document.getElementById('menuSearch');
+            if (searchBox) {
+                searchBox.focus();
+                setTimeout(() => {
+                    searchBox.value = '';
+                }, 900);
+            }
+        });
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                if (pos.scanner) {
+                    pos.scanner.clear().catch(err => console.error("Error clearing scanner on visibility change:", err));
+                    pos.scanner = null;
+                }
+            } else {
+                const activeTab = document.querySelector('.tab-content.active');
+                if (activeTab && activeTab.id === 'scanner') {
+                    setTimeout(() => pos.initScanner(), 1000);
+                }
+            }
+        });
+        window.addEventListener('beforeprint', function () {
+            document.body.classList.add('printing');
+        });
+        window.addEventListener('afterprint', function () {
+            document.body.classList.remove('printing');
+        });
+        setInterval(() => {
+            if (pos.currentCart.length > 0) {
+                localStorage.setItem('restaurant-pos-cart', JSON.stringify({
+                    cart: pos.currentCart,
+                    timestamp: Date.now()
+                }));
+            } else {
+                localStorage.removeItem('restaurant-pos-cart');
+            }
+        }, 10000);
+        try {
+            const savedCart = localStorage.getItem('restaurant-pos-cart');
+            if (savedCart) {
+                const cartData = JSON.parse(savedCart);
+                const timeDiff = Date.now() - cartData.timestamp;
+                if (timeDiff < 3600000 && cartData.cart.length > 0) {
+                    pos.currentCart = cartData.cart;
+                    pos.updateCartDisplay();
+                    pos.showNotification('پچھلا کارٹ بحال کر دیا گیا', 'info');
+                }
+            }
+        } catch (error) {
+            console.error('Failed to restore cart:', error);
+        }
+    </script>
+<script type="module">
+  import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-window.prod.mjs';
+
+  const swUrl = './sw.js';
+  const wb = new Workbox(swUrl);
+
+  wb.addEventListener('waiting', () => {
+    console.log('A new service worker is waiting to activate.');
+    wb.messageSW({ type: 'SKIP_WAITING' });
+  });
+
+  wb.addEventListener('controlling', () => {
+    console.log('The new service worker is now in control. Reloading page for updates...');
+    window.location.reload();
+  });
+
+  wb.register();
+</script></body>
+</html>
