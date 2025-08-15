@@ -186,7 +186,7 @@ if (workbox) {
     },
     {
         "url": "sw.js",
-        "revision": "b341bf6dcd124c1b4969be02c1856bdd"
+        "revision": "3c0e5bf6681a7d69dd002c4b43332913"
     },
     {
         "url": "VERSION",

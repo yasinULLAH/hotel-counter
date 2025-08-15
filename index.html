@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 
 <html dir="rtl" lang="ur">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Yasin Ullah, Pakistan" name="author" />
-    <meta content="مکمل آف لائن ریستوران POS سسٹم - تھرمل پرنٹنگ اور QR کوڈ ویریفیکیشن کے ساتھ" name="description" />
-    <meta content="ریستوران، POS، پوائنٹ آف سیل، تھرمل پرنٹر، رسید، QR کوڈ، آف لائن، پاکستان" name="keywords" />
-    <title>ریستوران POS سسٹم - پاکستان</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Yasin Ullah, Pakistan" name="author"/>
+<meta content="مکمل آف لائن ریستوران POS سسٹم - تھرمل پرنٹنگ اور QR کوڈ ویریفیکیشن کے ساتھ" name="description"/>
+<meta content="ریستوران، POS، پوائنٹ آف سیل، تھرمل پرنٹر، رسید، QR کوڈ، آف لائن، پاکستان" name="keywords"/>
+<title>ریستوران POS سسٹم - پاکستان</title>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
 
         * {
@@ -778,228 +777,219 @@
             flex-wrap: nowrap;
         }
     </style>
-    <link href="manifest.json" rel="manifest" />
-    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="manifest.json" rel="manifest"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
 </head>
-
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🍽️ ریستوران POS سسٹم</h1>
-            <p>مکمل پوائنٹ آف سیل حل - پاکستان</p>
-        </div>
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showTab('pos')">🛒 POS</button>
-            <button class="nav-tab" onclick="showTab('menu')">📋 مینو منیجمنٹ</button>
-            <button class="nav-tab" onclick="showTab('orders')">📜 آرڈرز</button>
-            <button class="nav-tab" onclick="showTab('scanner')">📱 QR اسکینر</button>
-            <button class="nav-tab" onclick="showTab('admin')">👤 ایڈمن</button>
-            <button class="nav-tab" onclick="showTab('settings')">⚙️ سیٹنگز</button>
-        </div>
-        <div class="tab-content active" id="pos">
-            <div class="card newd" style="flex-shrink: 0;">
-                <input autocomplete="new-password" class="search-box" id="menuSearch"
-                    onfocus="this.removeAttribute('readonly');" placeholder="مینو آئٹم تلاش کریں..." readonly=""
-                    type="text" />
-            </div>
-            <div class="grid">
-                <div>
-                    <div class="card">
-                        <h3
-                            style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50; flex-shrink: 0;">
+<div class="container">
+<div class="header">
+<h1>🍽️ ریستوران POS سسٹم</h1>
+<p>مکمل پوائنٹ آف سیل حل - پاکستان</p>
+</div>
+<div class="nav-tabs">
+<button class="nav-tab active" onclick="showTab('pos')">🛒 POS</button>
+<button class="nav-tab" onclick="showTab('menu')">📋 مینو منیجمنٹ</button>
+<button class="nav-tab" onclick="showTab('orders')">📜 آرڈرز</button>
+<button class="nav-tab" onclick="showTab('scanner')">📱 QR اسکینر</button>
+<button class="nav-tab" onclick="showTab('admin')">👤 ایڈمن</button>
+<button class="nav-tab" onclick="showTab('settings')">⚙️ سیٹنگز</button>
+</div>
+<div class="tab-content active" id="pos">
+<div class="card newd" style="flex-shrink: 0;">
+<input autocomplete="new-password" class="search-box" id="menuSearch" onfocus="this.removeAttribute('readonly');" placeholder="مینو آئٹم تلاش کریں..." readonly="" type="text"/>
+</div>
+<div class="grid">
+<div>
+<div class="card">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50; flex-shrink: 0;">
                             🍽️ مینو
                             آئٹمز</h3>
-                        <div class="menu-grid" id="menuGrid"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="cart">
-                        <div class="cart-header">🛒 موجودہ آرڈر</div>
-                        <div id="currentCart"></div>
-                        <div class="cart-total">
-                            <div style="font-size: 16px; margin-bottom: 6px;">کل رقم:</div>
-                            <div class="total-amount" id="cartTotal">Rs. 0</div>
-                        </div>
-                        <div style="margin-top: 15px; flex-shrink: 0;">
-                            <select class="form-control" id="paymentMethod" style="margin-bottom: 10px;">
-                                <option value="نقد">💵 نقد</option>
-                                <option value="کارڈ">💳 کارڈ</option>
-                                <option value="موبائل بینکنگ">📱 موبائل بینکنگ</option>
-                            </select>
-                            <button class="btn btn-success btn-large" onclick="checkout()" style="width: 100%;">✅ چیک
+<div class="menu-grid" id="menuGrid"></div>
+</div>
+</div>
+<div>
+<div class="cart">
+<div class="cart-header">🛒 موجودہ آرڈر</div>
+<div id="currentCart"></div>
+<div class="cart-total">
+<div style="font-size: 16px; margin-bottom: 6px;">کل رقم:</div>
+<div class="total-amount" id="cartTotal">Rs. 0</div>
+</div>
+<div style="margin-top: 15px; flex-shrink: 0;">
+<select class="form-control" id="paymentMethod" style="margin-bottom: 10px;">
+<option value="نقد">💵 نقد</option>
+<option value="کارڈ">💳 کارڈ</option>
+<option value="موبائل بینکنگ">📱 موبائل بینکنگ</option>
+</select>
+<button class="btn btn-success btn-large" onclick="checkout()" style="width: 100%;">✅ چیک
                                 آؤٹ اور پرنٹ</button>
-                            <button class="btn btn-warning btn-large" onclick="clearCart()"
-                                style="width: 100%; margin-top: 8px;">🗑️ کارٹ صاف کریں</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tab-content" id="menu">
-            <div class="card">
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 8px; flex-shrink: 0;">
-                    <h3 style="font-size: 18px; color: #2c3e50;">📋 مینو منیجمنٹ</h3>
-                    <button class="btn btn-success" onclick="openModal('addItemModal')">➕ نیا آئٹم شامل کریں</button>
-                </div>
-                <div id="menuList" style="flex-grow: 1; overflow-y: auto;"></div>
-            </div>
-        </div>
-        <div class="tab-content" id="orders">
-            <div class="card">
-                <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50; flex-shrink: 0;">📜
+<button class="btn btn-warning btn-large" onclick="clearCart()" style="width: 100%; margin-top: 8px;">🗑️ کارٹ صاف کریں</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="menu">
+<div class="card">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 8px; flex-shrink: 0;">
+<h3 style="font-size: 18px; color: #2c3e50;">📋 مینو منیجمنٹ</h3>
+<button class="btn btn-success" onclick="openModal('addItemModal')">➕ نیا آئٹم شامل کریں</button>
+</div>
+<div id="menuList" style="flex-grow: 1; overflow-y: auto;"></div>
+</div>
+</div>
+<div class="tab-content" id="orders">
+<div class="card">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50; flex-shrink: 0;">📜
                     آرڈر تاریخ</h3>
-                <div id="ordersList" style="flex-grow: 1; overflow-y: auto;"></div>
-            </div>
-        </div>
-        <div class="tab-content" id="scanner">
-            <div class="scanner-container">
-                <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📱 رسید ویریفیکیشن
+<div id="ordersList" style="flex-grow: 1; overflow-y: auto;"></div>
+</div>
+</div>
+<div class="tab-content" id="scanner">
+<div class="scanner-container">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📱 رسید ویریفیکیشن
                     اسکینر</h3>
-                <div id="reader"></div>
-                <div id="scanResult"></div>
-            </div>
-        </div>
-        <div class="tab-content" id="admin">
-            <div class="card" id="adminLogin">
-                <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">👤 ایڈمن لاگ ان
+<div id="reader"></div>
+<div id="scanResult"></div>
+</div>
+</div>
+<div class="tab-content" id="admin">
+<div class="card" id="adminLogin">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">👤 ایڈمن لاگ ان
                 </h3>
-                <div class="form-group">
-                    <input class="form-control" id="adminPassword" placeholder="ایڈمن پاس ورڈ داخل کریں"
-                        type="password" />
-                </div>
-                <button class="btn btn-large" onclick="adminLogin()" style="width: 100%;">🔐 لاگ ان</button>
-            </div>
-            <div id="adminPanel" style="display: none; flex-direction: column; flex-grow: 1;">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number" id="todaySales">0</div>
-                        <div class="stat-label">آج کی فروخت</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="todayOrders">0</div>
-                        <div class="stat-label">آج کے آرڈرز</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalRevenue">0</div>
-                        <div class="stat-label">کل آمدنی</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalItems">0</div>
-                        <div class="stat-label">مینو آئٹمز</div>
-                    </div>
-                </div>
-                <div class="report-section" style="flex-grow: 1; overflow-y: auto;">
-                    <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📊 رپورٹس</h3>
-                    <div class="report-controls">
-                        <button class="btn" onclick="generateReport('daily')">📅 روزانہ رپورٹ</button>
-                        <button class="btn" onclick="generateReport('weekly')">📈 ہفتہ وار رپورٹ</button>
-                        <button class="btn" onclick="generateReport('monthly')">📆 ماہانہ رپورٹ</button>
-                        <button class="btn btn-success" onclick="exportData()">💾 ڈیٹا ایکسپورٹ</button>
-                        <button class="btn btn-warning" onclick="openModal('importModal')">📁 ڈیٹا امپورٹ</button>
-                    </div>
-                    <div id="reportResults"></div>
-                </div>
-            </div>
-        </div>
-        <div class="tab-content" id="settings">
-            <div class="card">
-                <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">⚙️ ریستوران سیٹنگز
+<div class="form-group">
+<input class="form-control" id="adminPassword" placeholder="ایڈمن پاس ورڈ داخل کریں" type="password"/>
+</div>
+<button class="btn btn-large" onclick="adminLogin()" style="width: 100%;">🔐 لاگ ان</button>
+</div>
+<div id="adminPanel" style="display: none; flex-direction: column; flex-grow: 1;">
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number" id="todaySales">0</div>
+<div class="stat-label">آج کی فروخت</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" id="todayOrders">0</div>
+<div class="stat-label">آج کے آرڈرز</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" id="totalRevenue">0</div>
+<div class="stat-label">کل آمدنی</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" id="totalItems">0</div>
+<div class="stat-label">مینو آئٹمز</div>
+</div>
+</div>
+<div class="report-section" style="flex-grow: 1; overflow-y: auto;">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📊 رپورٹس</h3>
+<div class="report-controls">
+<button class="btn" onclick="generateReport('daily')">📅 روزانہ رپورٹ</button>
+<button class="btn" onclick="generateReport('weekly')">📈 ہفتہ وار رپورٹ</button>
+<button class="btn" onclick="generateReport('monthly')">📆 ماہانہ رپورٹ</button>
+<button class="btn btn-success" onclick="exportData()">💾 ڈیٹا ایکسپورٹ</button>
+<button class="btn btn-warning" onclick="openModal('importModal')">📁 ڈیٹا امپورٹ</button>
+</div>
+<div id="reportResults"></div>
+</div>
+</div>
+</div>
+<div class="tab-content" id="settings">
+<div class="card">
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">⚙️ ریستوران سیٹنگز
                 </h3>
-                <div class="form-group">
-                    <label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">ریستوران کا
+<div class="form-group">
+<label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">ریستوران کا
                         نام:</label>
-                    <input class="form-control" id="restaurantName" type="text" value="بسم اللہ ریستوران" />
-                </div>
-                <div class="form-group">
-                    <label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">پتہ:</label>
-                    <textarea class="form-control" id="restaurantAddress"
-                        rows="3">123 مین سٹریٹ، لاہور، پاکستان</textarea>
-                </div>
-                <div class="form-group">
-                    <label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">فون
+<input class="form-control" id="restaurantName" type="text" value="بسم اللہ ریستوران"/>
+</div>
+<div class="form-group">
+<label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">پتہ:</label>
+<textarea class="form-control" id="restaurantAddress" rows="3">123 مین سٹریٹ، لاہور، پاکستان</textarea>
+</div>
+<div class="form-group">
+<label style="font-size: 14px; font-weight: bold; margin-bottom: 5px; display: block;">فون
                         نمبر:</label>
-                    <input class="form-control" id="restaurantPhone" type="text" value="+92-300-1234567" />
-                </div>
-                <button class="btn btn-success btn-large" onclick="saveSettings()" style="width: 100%;">💾 سیٹنگز محفوظ
+<input class="form-control" id="restaurantPhone" type="text" value="+92-300-1234567"/>
+</div>
+<button class="btn btn-success btn-large" onclick="saveSettings()" style="width: 100%;">💾 سیٹنگز محفوظ
                     کریں</button>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="addItemModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('addItemModal')">×</span>
-            <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">➕ نیا مینو آئٹم</h3>
-            <div class="form-group">
-                <input class="form-control" id="itemName" placeholder="آئٹم کا نام" type="text" />
-            </div>
-            <div class="form-group">
-                <input class="form-control" id="itemPrice" placeholder="قیمت (Rs.)" type="number" />
-            </div>
-            <div class="form-group">
-                <select class="form-control" id="itemCategory">
-                    <option value="مین کورس">مین کورس</option>
-                    <option value="اپیٹائزر">اپیٹائزر</option>
-                    <option value="ڈیزرٹ">ڈیزرٹ</option>
-                    <option value="مشروبات">مشروبات</option>
-                    <option value="چاول">چاول</option>
-                    <option value="روٹی">روٹی</option>
-                </select>
-            </div>
-            <button class="btn btn-success btn-large" onclick="addMenuItem()" style="width: 100%;">✅ آئٹم شامل
+</div>
+</div>
+</div>
+<div class="modal" id="addItemModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('addItemModal')">×</span>
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">➕ نیا مینو آئٹم</h3>
+<div class="form-group">
+<input class="form-control" id="itemName" placeholder="آئٹم کا نام" type="text"/>
+</div>
+<div class="form-group">
+<input class="form-control" id="itemPrice" placeholder="قیمت (Rs.)" type="number"/>
+</div>
+<div class="form-group">
+<select class="form-control" id="itemCategory">
+<option value="مین کورس">مین کورس</option>
+<option value="اپیٹائزر">اپیٹائزر</option>
+<option value="ڈیزرٹ">ڈیزرٹ</option>
+<option value="مشروبات">مشروبات</option>
+<option value="چاول">چاول</option>
+<option value="روٹی">روٹی</option>
+</select>
+</div>
+<button class="btn btn-success btn-large" onclick="addMenuItem()" style="width: 100%;">✅ آئٹم شامل
                 کریں</button>
-        </div>
-    </div>
-    <div class="modal" id="editItemModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('editItemModal')">×</span>
-            <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">✏️ آئٹم ایڈٹ کریں</h3>
-            <input id="editItemId" type="hidden" />
-            <div class="form-group">
-                <input class="form-control" id="editItemName" placeholder="آئٹم کا نام" type="text" />
-            </div>
-            <div class="form-group">
-                <input class="form-control" id="editItemPrice" placeholder="قیمت (Rs.)" type="number" />
-            </div>
-            <div class="form-group">
-                <select class="form-control" id="editItemCategory">
-                    <option value="مین کورس">مین کورس</option>
-                    <option value="اپیٹائزر">اپیٹائزر</option>
-                    <option value="ڈیزرٹ">ڈیزرٹ</option>
-                    <option value="مشروبات">مشروبات</option>
-                    <option value="چاول">چاول</option>
-                    <option value="روٹی">روٹی</option>
-                </select>
-            </div>
-            <button class="btn btn-success btn-large" onclick="updateMenuItem()" style="width: 100%;">✅ اپڈیٹ
+</div>
+</div>
+<div class="modal" id="editItemModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('editItemModal')">×</span>
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">✏️ آئٹم ایڈٹ کریں</h3>
+<input id="editItemId" type="hidden"/>
+<div class="form-group">
+<input class="form-control" id="editItemName" placeholder="آئٹم کا نام" type="text"/>
+</div>
+<div class="form-group">
+<input class="form-control" id="editItemPrice" placeholder="قیمت (Rs.)" type="number"/>
+</div>
+<div class="form-group">
+<select class="form-control" id="editItemCategory">
+<option value="مین کورس">مین کورس</option>
+<option value="اپیٹائزر">اپیٹائزر</option>
+<option value="ڈیزرٹ">ڈیزرٹ</option>
+<option value="مشروبات">مشروبات</option>
+<option value="چاول">چاول</option>
+<option value="روٹی">روٹی</option>
+</select>
+</div>
+<button class="btn btn-success btn-large" onclick="updateMenuItem()" style="width: 100%;">✅ اپڈیٹ
                 کریں</button>
-        </div>
-    </div>
-    <div class="modal" id="importModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('importModal')">×</span>
-            <h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📁 ڈیٹا امپورٹ</h3>
-            <div class="form-group">
-                <input accept=".json" class="form-control" id="importFile" type="file" />
-            </div>
-            <button class="btn btn-success btn-large" onclick="importData()" style="width: 100%;">📥</button>
-        </div>
-    </div>
-    <div class="modal" id="receiptModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('receiptModal')">×</span>
-            <div id="receiptContent"></div>
-            <div class="receipt-actions"
-                style="text-align: center; margin-top: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <button class="btn btn-success btn-large" onclick="downloadReceipt()">📥</button>
-                <button class="btn btn-large" onclick="printReceipt()">🖨️</button>
-            </div>
-        </div>
-    </div>
-    <script src="https://unpkg.com/qrious@4.0.2/dist/qrious.min.js"></script>
-    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script>
+</div>
+</div>
+<div class="modal" id="importModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('importModal')">×</span>
+<h3 style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #2c3e50;">📁 ڈیٹا امپورٹ</h3>
+<div class="form-group">
+<input accept=".json" class="form-control" id="importFile" type="file"/>
+</div>
+<button class="btn btn-success btn-large" onclick="importData()" style="width: 100%;">📥</button>
+</div>
+</div>
+<div class="modal" id="receiptModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('receiptModal')">×</span>
+<div id="receiptContent"></div>
+<div class="receipt-actions" style="text-align: center; margin-top: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+<button class="btn btn-success btn-large" onclick="downloadReceipt()">📥</button>
+<button class="btn btn-large" onclick="printReceipt()">🖨️</button>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/qrious@4.0.2/dist/qrious.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
         class RestaurantPOS {
             constructor() {
                 this.currentCart = [];
@@ -2071,24 +2061,22 @@
         document.querySelectorAll('input, textarea, select').forEach(el => el.setAttribute('dir', 'auto'));
     </script>
 
-    <script type="module">
-        import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-window.prod.mjs';
+<script type="module">
+  import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-window.prod.mjs';
 
-        const swUrl = './sw.js';
-        const wb = new Workbox(swUrl);
+  const swUrl = './sw.js';
+  const wb = new Workbox(swUrl);
 
-        wb.addEventListener('waiting', () => {
-            console.log('A new service worker is waiting to activate.');
-            wb.messageSW({ type: 'SKIP_WAITING' });
-        });
+  wb.addEventListener('waiting', () => {
+    console.log('A new service worker is waiting to activate.');
+    wb.messageSW({ type: 'SKIP_WAITING' });
+  });
 
-        wb.addEventListener('controlling', () => {
-            console.log('The new service worker is now in control. Reloading page for updates...');
-            window.location.reload();
-        });
+  wb.addEventListener('controlling', () => {
+    console.log('The new service worker is now in control. Reloading page for updates...');
+    window.location.reload();
+  });
 
-        wb.register();
-    </script>
-</body>
-
+  wb.register();
+</script></body>
 </html>
