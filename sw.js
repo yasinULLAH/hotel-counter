@@ -49,20 +49,28 @@ if (workbox) {
         "revision": "7cbcf8be98d3ce63133537d07504db0f"
     },
     {
+        "url": ".gitattributes",
+        "revision": "05bdb783ee6514c8c072e47680af8ff7"
+    },
+    {
         "url": "build pwa make html app offline and installable yasin best working re-run this for updates best for html only.py",
         "revision": "912a9d55d74613b8f4f07180d0df1fd3"
     },
     {
-        "url": "Copy of index.html",
-        "revision": "704b32b619451f8144721eeadc24a438"
+        "url": "Copy of index.html.txt",
+        "revision": "c594d507f66dc45d705f8c51d130ef89"
     },
     {
         "url": "index.html",
-        "revision": "c59b78b42d58ead90e6b55999538f0bb"
+        "revision": "d1b31f913dc44795a468a32a4674d90f"
+    },
+    {
+        "url": "manifest.json",
+        "revision": "13c88c9a47b4da9acfc58502f79f1a0e"
     },
     {
         "url": "offline.html",
-        "revision": "7656c61e25225c4fcc77cb000be6d527"
+        "revision": "93dd8135f88165fc1bbc0acf525cd1d3"
     },
     {
         "url": "qrcode.min.js",
@@ -91,6 +99,10 @@ if (workbox) {
     {
         "url": "receipt-44910508.png",
         "revision": "b0f28da7e0696027cab37d6c9ce2c4f6"
+    },
+    {
+        "url": "sw.js",
+        "revision": "83e6a2b8fffc407226c40f862265b780"
     }
 ]);
 
