@@ -66,7 +66,7 @@ if (workbox) {
     },
     {
         "url": "index.html",
-        "revision": "4ec4868124d22b14938f22df3d86e586"
+        "revision": "03299a3e5088a67749b57a83d768cc85"
     },
     {
         "url": "index.php",
@@ -186,7 +186,7 @@ if (workbox) {
     },
     {
         "url": "sw.js",
-        "revision": "3c0e5bf6681a7d69dd002c4b43332913"
+        "revision": "23db14faeb29ce0f48630b47387f637d"
     },
     {
         "url": "VERSION",
